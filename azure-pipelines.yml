@@ -26,7 +26,7 @@ steps:
     #fsReportPath: 'C:\LoadRunnerTestsResults'
 
 
-# All params are set (on a multiple scenarios folder) ->
+# All params are set (on a multiple scenarios folder) -> fsTimeout test
 - task: ExecMicroFocusTests@0
   inputs:
     Test1: 'C:\Scenarios-Multiple'
@@ -38,8 +38,7 @@ steps:
     displayController: '1'
     fsTimeout: '10'
     resultsFilename: 'logs.xml'
-
-
+    
 # Source folder with no scenarios
 - task: ExecMicroFocusTests@0
   inputs:
