@@ -14,6 +14,7 @@ steps:
   inputs:
     Test1: 'C:\Scenarios-Multiple'
     displayController: '1'
+    threatFailureAsError: false
   condition: always()
 
 
