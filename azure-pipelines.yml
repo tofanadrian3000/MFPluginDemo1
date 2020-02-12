@@ -10,6 +10,10 @@ pool: 'AzureVms'
 steps:
 
 # Default configuration (on a multiple scenarios folder)-> default parameters are not required 
+# The folder contains two scenarios:
+#   - 5UsersPassedScenario.lrs
+#   - 10UsersPassedScenario.lrs
+# Both of them should pass
 - task: ExecMicroFocusTests@0
   inputs:
     Test1: 'C:\Scenarios-Multiple'
