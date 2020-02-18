@@ -34,4 +34,4 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/*.xml'
+    testResultsFiles: 'C:\Agent\_work\3\a\IE\*.xml'
