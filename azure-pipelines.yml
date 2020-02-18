@@ -15,7 +15,12 @@ steps:
 # - task: ExecMicroFocusTests@0
 #   inputs:
 #     Test1: 'C:\Scenarios-Multiple'
+
+
+- powershell:  
+    copy-item -Path C:\IE -Destination .\IE -Recurse
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/*.html'
