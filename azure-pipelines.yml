@@ -18,7 +18,7 @@ steps:
 
 
 - powershell:  
-    copy-item -Path C:\IE -Destination .\IE -Recurse
+    copy-item -Path C:\IE -Destination C:\Agent\_work\3\a\IE -Recurse
 
 - task: PublishBuildArtifacts@1
   inputs:
