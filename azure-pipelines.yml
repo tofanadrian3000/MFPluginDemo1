@@ -12,28 +12,10 @@ steps:
 #   - 5UsersPassedScenario.lrs
 #   - 10UsersPassedScenario.lrs
 # Both of them should pass
-- task: ExecMicroFocusTests@0
-  inputs:
-    Test1: 'C:\Scenarios-Multiple'
-
-# - task: PublishTestResults@2
+# - task: ExecMicroFocusTests@0
 #   inputs:
-#     #testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-#     #testResultsFiles: '**/TEST-*.xml' 
-#     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-#     #mergeTestResults: false # Optional
-#     #failTaskOnFailedTests: false # Optional
-#     #testRunTitle: # Optional
-#     #buildPlatform: # Optional
-#     #buildConfiguration: # Optional
-#     publishRunAttachments: true
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'publish'
-#     publishWebProjects: true
-
-- task: PublishBuildArtifacts@1
+#     Test1: 'C:\Scenarios-Multiple'
+- task: PublishTestResults@2
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
