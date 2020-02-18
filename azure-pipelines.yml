@@ -30,3 +30,8 @@ steps:
   inputs:
     artifactName: 'drop'
     htmlFilePath: 'C:\Agent\_work\3\a\IE\HTML.html'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/*.xml'
