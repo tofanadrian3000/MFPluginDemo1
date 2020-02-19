@@ -26,12 +26,18 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: publishHtml@1
-  inputs:
-    artifactName: 'drop'
-    htmlFilePath: 'C:\Agent\_work\3\a\IE\HTML.html'
-
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: 'C:\Agent\_work\3\a\IE\*.xml'
+
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'serviceEndpoint'
+    rootDirectory: '$(Build.ArtifactStagingDirectory)'
+    filePatterns: '**'
+    remoteDirectory: '/upload/$(Build.BuildId)/'
+    clean: false
+    cleanContents: false
+    preservePaths: false
+    trustSSL: false
