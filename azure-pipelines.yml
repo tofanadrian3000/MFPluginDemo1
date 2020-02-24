@@ -14,11 +14,16 @@ steps:
 # Both of them should pass
 # - task: ExecMicroFocusTests@0
 #   inputs:
-#     Test1: 'C:\Scenarios-Multiple\'
+#     Test1: ''
 
+- task: ExecMicroFocusTests@0
+  inputs:
+    SourcePath: 'C:\Scenarios-Multiple\'
+    BuildId: '$(Build.BuildNumber)'
+    BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
-- powershell:  
-    copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
+# - powershell:  
+#     copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
 
 - task: PublishBuildArtifacts@1
   inputs:
@@ -26,18 +31,13 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- publish: $(Build.ArtifactStagingDirectory)\IE
-  artifact: WebApp
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\IE'
-    ArtifactName: 'IE'
-    publishLocation: 'FilePath'
-    TargetPath: '$(Build.ArtifactStagingDirectory)\IE'
-
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '$(Build.ArtifactStagingDirectory)\IE\*.xml'
+    testResultsFiles: '$(Build.ArtifactStagingDirectory)\*.xml'
+
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'JUnit'
+#     testResultsFiles: '$(Build.ArtifactStagingDirectory)\IE\*.xml'
 
