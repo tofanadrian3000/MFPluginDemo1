@@ -29,6 +29,13 @@ steps:
 - publish: $(Build.ArtifactStagingDirectory)\IE
   artifact: WebApp
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\IE'
+    ArtifactName: 'IE'
+    publishLocation: 'FilePath'
+    TargetPath: '$(Build.ArtifactStagingDirectory)\IE'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
