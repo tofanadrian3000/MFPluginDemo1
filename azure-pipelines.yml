@@ -18,7 +18,7 @@ steps:
 
 
 - powershell:  
-    copy-item -Path C:\IE -Destination C:\Agent\_work\3\a\IE -Recurse
+    copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
 
 - task: PublishBuildArtifacts@1
   inputs:
@@ -26,18 +26,11 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- publish: $(Build.ArtifactStagingDirectory)\IE
+  artifact: WebApp
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'C:\Agent\_work\3\a\IE\*.xml'
+    testResultsFiles: '$(Build.ArtifactStagingDirectory)\IE\*.xml'
 
-- task: FtpUpload@2
-  inputs:
-    credentialsOption: 'serviceEndpoint'
-    rootDirectory: '$(Build.ArtifactStagingDirectory)'
-    filePatterns: '**'
-    remoteDirectory: '/upload/$(Build.BuildId)/'
-    clean: false
-    cleanContents: false
-    preservePaths: false
-    trustSSL: false
