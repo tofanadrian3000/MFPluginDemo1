@@ -27,14 +27,14 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\MFTestsArtifacts'
+    ArtifactName: 'MFTestsArtifacts'
     publishLocation: 'Container'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '$(Build.ArtifactStagingDirectory)\*.xml'
+    testResultsFiles: '$(Build.ArtifactStagingDirectory)\MFTestsResults\*.xml'
 
 # - task: PublishTestResults@2
 #   inputs:
