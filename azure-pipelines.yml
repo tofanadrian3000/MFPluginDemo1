@@ -27,21 +27,17 @@ steps:
 # - powershell:  
 #     copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\MFTestsArtifacts'
-    ArtifactName: 'MFTestsArtifacts'
-    publishLocation: 'Container'
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '$(Build.ArtifactStagingDirectory)\MFTestsResults\*.xml'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)\MFTestsArtifacts'
+#     ArtifactName: 'MFTestsArtifacts'
+#     publishLocation: 'Container'
 
 # - task: PublishTestResults@2
 #   inputs:
 #     testResultsFormat: 'JUnit'
-#     testResultsFiles: '$(Build.ArtifactStagingDirectory)\IE\*.xml'
+#     testResultsFiles: '$(Build.ArtifactStagingDirectory)\MFTestsResults\*.xml'
+
 
 # - task: SendEmail@1
 #   inputs:
