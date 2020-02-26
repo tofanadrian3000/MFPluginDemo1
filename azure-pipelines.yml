@@ -19,8 +19,10 @@ steps:
 - task: ExecMicroFocusTests@0
   inputs:
     SourcePath: 'C:\Scenarios-Multiple'
+    ResultsDirectory: 'C:\LR'
     BuildId: '$(Build.BuildNumber)'
     BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
+
 
 # - powershell:  
 #     copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
