@@ -33,11 +33,11 @@ steps:
 #     ArtifactName: 'MFTestsArtifacts'
 #     publishLocation: 'Container'
 
-# - task: PublishTestResults@2
-#   inputs:
-#     testResultsFormat: 'JUnit'
-#     testResultsFiles: '$(Build.ArtifactStagingDirectory)\MFTestsResults\*.xml'
-
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '$(Build.ArtifactStagingDirectory)\MFTestsResults\*.xml'
+    mergeTestResults: true
 
 # - task: SendEmail@1
 #   inputs:
