@@ -18,10 +18,10 @@ steps:
 
 - task: ExecMicroFocusTests@0
   inputs:
-    SourcePath: 'C:\Scenarios-Multiple'
+    SourcePath: 'C:\Scenarios-Multiple\5UsersPassedScenario.lrs'
     ResultsDirectory: 'C:\LR'
-    BuildId: '$(Build.BuildNumber)'
-    BuildArtifactsDirectory: 'Build-$(Build.BuildNumber)'
+    BuildId: 'Build-$(Build.BuildNumber)'
+    BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
 
 # - powershell:  
