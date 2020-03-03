@@ -2,8 +2,8 @@
 trigger:
 - master
 
-#pool: 'Default'
-pool: 'AzureVms'
+pool: 'Default'
+#pool: 'AzureVms'
 
 steps:
 
@@ -20,8 +20,8 @@ steps:
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
     ResultsDirectory: 'C:\LR'
-    BuildId: 'Build-$(Build.BuildNumber)'
-    BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
+    # BuildId: '$(Build.BuildNumber)'
+    # BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
 
 # - powershell:  
