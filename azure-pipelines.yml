@@ -2,8 +2,8 @@
 trigger:
 - master
 
-pool: 'Default'
-#pool: 'AzureVms'
+#pool: 'Default'
+pool: 'AzureVms'
 
 steps:
 
@@ -16,13 +16,19 @@ steps:
 #   inputs:
 #     Test1: ''
 
-- task: ExecMicroFocusTests@0
-  inputs:
-    SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
-    ResultsDirectory: 'C:\LR'
-    BuildId: 'Build-$(Build.BuildNumber)'
+# - task: ExecMicroFocusTests@0
+#   inputs:
+#     SourcePath: 'C:\Scenarios-Multiple'
+#     ResultsDirectory: 'C:\LR'
+#     BuildId: 'Build-$(Build.BuildNumber)'
     # BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
+
+- task: ExecMicroFocusTestsDemo6@0
+  inputs:
+    SourcePath: 'C:\Scenarios-Multiple'
+    ResultsDirectory: 'C:\LR'
+    BuildLabel: 'Build-$(Build.BuildNumber)'
 
 # - powershell:  
 #     copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
