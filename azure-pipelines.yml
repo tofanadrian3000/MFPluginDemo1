@@ -21,7 +21,7 @@ steps:
     SourcePath: 'C:\Scenarios-Multiple'
     ResultsDirectory: 'C:\LR'
     BuildId: '$(Build.BuildNumber)'
-    BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
+    BuildArtifactsDirectory: 'Build-$(Build.BuildNumber)'
 
 
 # - powershell:  
