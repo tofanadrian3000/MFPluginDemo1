@@ -20,7 +20,7 @@ steps:
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
     ResultsDirectory: 'C:\LR'
-    # BuildId: '$(Build.BuildNumber)'
+    BuildId: 'Build-$(Build.BuildNumber)'
     # BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
 
