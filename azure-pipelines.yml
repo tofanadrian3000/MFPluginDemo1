@@ -28,7 +28,7 @@ steps:
     
 - task: ExecMicroFocusTestsDemo6@0
   inputs:
-    SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
+    SourcePath: 'C:\Scenarios-Multiple'
     ResultsDirectory: 'C:\LR'
     #BuildLabel: 'Build-$(Build.BuildNumber)'
 
