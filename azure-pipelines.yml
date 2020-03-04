@@ -24,14 +24,14 @@ steps:
     # BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
 
-- task: ExecMicroFocusTestsDemo6@0
-  inputs:
-    SourcePath: 'C:\Scenarios-Multiple'
-    ResultsDirectory: 'C:\LR'
-    BuildLabel: 'Build-$(Build.BuildNumber)'
+# - task: ExecMicroFocusTestsDemo6@0
+#   inputs:
+#     SourcePath: 'C:\Scenarios-Multiple'
+#     ResultsDirectory: 'C:\LR'
+#     BuildLabel: 'Build-$(Build.BuildNumber)'
 
-# - powershell:  
-#     copy-item -Path C:\IE -Destination $(Build.ArtifactStagingDirectory) -Recurse
+- powershell:  
+    copy-item -Path C:\LoadRunnerReports -Destination $(Build.ArtifactStagingDirectory) -Recurse
 
 # - task: PublishBuildArtifacts@1
 #   inputs:
@@ -39,11 +39,11 @@ steps:
 #     ArtifactName: 'MFTestsArtifacts'
 #     publishLocation: 'Container'
 
-# - task: PublishTestResults@2
-#   inputs:
-#     testResultsFormat: 'JUnit'
-#     testResultsFiles: 'C:\Agent\_work\3\a\LoadRunnerReports\*.xml'
-#     mergeTestResults: true
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'C:\Agent\_work\3\a\LoadRunnerReports\*.xml'
+    mergeTestResults: true
 
 # - task: SendEmail@1
 #   inputs:
