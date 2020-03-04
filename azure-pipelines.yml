@@ -23,14 +23,14 @@ steps:
 #     BuildId: 'Build-$(Build.BuildNumber)'
     # BuildArtifactsDirectory: '$(Build.ArtifactStagingDirectory)'
 
-- powershell:  
-    copy-item -Path C:\LoadRunnerReports -Destination $(Build.ArtifactStagingDirectory) -Recurse
+# - powershell:  
+#     copy-item -Path C:\LoadRunnerReports -Destination $(Build.ArtifactStagingDirectory) -Recurse
     
 - task: ExecMicroFocusTestsDemo6@0
   inputs:
-    SourcePath: 'C:\Scenarios-Multiple'
+    SourcePath: 'C:\Scenarios-Multiple2'
     ResultsDirectory: 'C:\LR'
-    BuildLabel: 'Build-$(Build.BuildNumber)'
+    #BuildLabel: 'Build-$(Build.BuildNumber)'
 
 
 # - task: PublishBuildArtifacts@1
