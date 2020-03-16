@@ -2,8 +2,8 @@
 trigger:
 - master
 
-#pool: 'Default'
-pool: 'AzureVms'
+pool: 'Default'
+#pool: 'AzureVms'
 
 steps:
 
@@ -16,3 +16,5 @@ steps:
   inputs:
     SourcePath: 'C:\Scenarios-Multiple'
     ResultsDirectory: 'C:\LR'
+
+  
