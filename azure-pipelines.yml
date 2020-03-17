@@ -2,7 +2,7 @@
 trigger:
 - master
 
-pool: 'Win2019'
+pool: 'Win2016'
 #pool: 'Default'
 #pool: 'AzureVms'
 
