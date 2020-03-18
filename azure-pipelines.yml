@@ -2,9 +2,9 @@
 trigger:
 - master
 
-pool: 'Win8.1'
+#pool: 'Win8.1'
 #pool: 'Default'
-#pool: 'AzureVms'
+pool: 'AzureVms'
 
 steps:
 
@@ -13,9 +13,7 @@ steps:
 #   - 5UsersPassedScenario.lrs
 #   - 10UsersPassedScenario.lrs
 # Both of them should pass
-- task: ExecMicroFocusTestsDemo7@0
+- task: ExecMicroFocusTestsDemo8@0
   inputs:
     SourcePath: 'C:\Scenarios-Multiple'
     ResultsDirectory: 'C:\LR'
-
-  
