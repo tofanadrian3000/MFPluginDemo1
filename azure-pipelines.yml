@@ -2,7 +2,7 @@
 trigger:
 - master
 
-pool: 'Win2016'
+pool: 'Win8.1'
 #pool: 'Default'
 #pool: 'AzureVms'
 
