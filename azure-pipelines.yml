@@ -13,4 +13,18 @@ steps:
     SourcePath: 'C:\Scenarios-Multiple2'
     PublishScenarioResults: false
     PublishArtifactsManually: true
+    BuildArtifactsDirectory: $(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts
     PublishTestReportsManually: true
+    BuildTestReportsDirectory: $(Build.ArtifactStagingDirectory)\LoadRunnerReports
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '*.xml'
+    searchFolder: '$(Build.ArtifactStagingDirectory)\LoadRunnerReports'
