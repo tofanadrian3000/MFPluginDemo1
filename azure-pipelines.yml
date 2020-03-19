@@ -8,12 +8,9 @@ pool: 'Win8.1'
 
 steps:
 
-# Default configuration (on a multiple scenarios folder)-> default parameters are not required 
-# The folder contains two scenarios:
-#   - 5UsersPassedScenario.lrs
-#   - 10UsersPassedScenario.lrs
-# Both of them should pass
 - task: ExecMicroFocusTestsDemo8@0
   inputs:
-    SourcePath: 'C:\Scenarios-Multiple'
-    ResultsDirectory: 'C:\LR'
+    SourcePath: 'C:\Scenarios-Multiple2'
+    PublishScenarioResults: false
+    PublishArtifactsManually: true
+    PublishTestReportsManually: true
