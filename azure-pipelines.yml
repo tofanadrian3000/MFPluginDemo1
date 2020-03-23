@@ -8,7 +8,7 @@ pool: 'Default'
 
 steps:
 
-- task: ExecMicroFocusTestsDemo10@0
+- task: ExecuteLoadRunnerTests@0
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
     PublishScenarioResults: false
