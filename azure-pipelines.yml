@@ -2,28 +2,14 @@
 trigger:
 - master
 
-#pool: 'Win8.1'
+pool: 'Win8.1'
 #pool: 'Default'
-pool: 'Win2016'
+#pool: 'Win2016'
 
 steps:
 
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
-    SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
-    PublishScenarioResults: false
-
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     PathtoPublish: '$(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts'
-#     ArtifactName: 'LRArtifacts'
-#     publishLocation: 'Container'
-
-# - task: PublishTestResults@2
-#   inputs:
-#     testResultsFormat: 'JUnit'
-#     testResultsFiles: '*.xml'
-#     searchFolder: '$(Build.ArtifactStagingDirectory)\LoadRunnerReports'
-#     mergeTestResults: true
-
-
+    SourcePath: 'C:\Scenarios-None'
+    PublishArtifactsManually: true
+    PublishTestReportsManually: true
