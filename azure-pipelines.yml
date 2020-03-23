@@ -4,18 +4,14 @@ trigger:
 
 #pool: 'Win8.1'
 #pool: 'Default'
-pool: 'Default'
+pool: 'Win2016'
 
 steps:
 
-- task: ExecuteLoadRunnerTests@0
+- task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
     PublishScenarioResults: false
-    PublishArtifactsManually: true
-    BuildArtifactsDirectory: $(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts
-    PublishTestReportsManually: true
-    BuildTestReportsDirectory: $(Build.ArtifactStagingDirectory)\LoadRunnerReports
 
 # - task: PublishBuildArtifacts@1
 #   inputs:
