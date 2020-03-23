@@ -11,5 +11,3 @@ steps:
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-None'
-    PublishArtifactsManually: true
-    PublishTestReportsManually: true
