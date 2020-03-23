@@ -8,26 +8,26 @@ pool: 'AzureVms'
 
 steps:
 
-- task: ExecuteLoadRunnerTests@0
+- task: ExecMicroFocusTestsDemo10@0
   inputs:
-    SourcePath: 'C:\Scenarios-Multiple2'
+    SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
     PublishScenarioResults: false
     PublishArtifactsManually: true
     BuildArtifactsDirectory: $(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts
     PublishTestReportsManually: true
     BuildTestReportsDirectory: $(Build.ArtifactStagingDirectory)\LoadRunnerReports
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts'
-    ArtifactName: 'LRArtifacts'
-    publishLocation: 'Container'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)\LoadRunnerArtifacts'
+#     ArtifactName: 'LRArtifacts'
+#     publishLocation: 'Container'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '*.xml'
-    searchFolder: '$(Build.ArtifactStagingDirectory)\LoadRunnerReports'
-    mergeTestResults: true
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'JUnit'
+#     testResultsFiles: '*.xml'
+#     searchFolder: '$(Build.ArtifactStagingDirectory)\LoadRunnerReports'
+#     mergeTestResults: true
 
 
