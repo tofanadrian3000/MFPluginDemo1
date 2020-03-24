@@ -9,6 +9,7 @@ pool: 'Win8.1'
 
 steps:
 
+
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-None'
