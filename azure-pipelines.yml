@@ -4,8 +4,8 @@ trigger:
 
 #pool: 'Win8.1'
 #pool: 'Default'
-pool: 'Win2016'
-#pool: 'AzureVms'
+#pool: 'Win2016'
+pool: 'AzureVms'
 
 steps:
 
