@@ -5,19 +5,52 @@ trigger:
 # pool: 'Win8.1' # Everything worked as expected
 # pool: 'Default' # Everything worked as expected
 # pool: 'Win2016' # Everything worked as expected
-pool: 'AzureVms'
+pool: 'AzureVms' # Everything worked as expected
 
 steps:
 
+# Default parameters configuration: 
+#   - task should upload its own scenario results as artifacts:
+#       scenarios results should be found at <build.artifactStagingDirectory>\LoadRunnerArtifacts
+#   - task should publish its own scenario reports as test results
+#       scenarios report should be found at <build.artifactStagingDirectory>\LoadRunnerReports
+#   - task should publish its own scenario results to agent's IIS as:
+#       - <agent.hostName>|<agent.publicIp>/<Build.buildId>-<Build.buildNumber>-<webApplicationIndex>
+#           if there was not web application with <Build.buildId>-<Build.buildNumber> name =>
+#             <webApplicationIndex> = ''
+#           else =>
+#             <webApplicationIndex> = physical path index of the web applications 
+#                                       with <Build.buildId>-<Build.buildNumber> name
+#             Ex: <webApplicationIndex> = '1' | '2', etc.
+#       - results should be formatted for the webApplication page
+#   - task should be marked as failed based on the SLA
+#   - task should should mark the job as failed if it is failed
+#   - task should write default values for parameters (if not given) to <taskPath>\props 
+#       in order to execute hpToolsLauncher.exe
+#   - task should copy <taskPath>\hpToolsLauncher.exe and <taskPath>\lrAnalysisLauncher.exe
+#       to <build.workspace> 
+#   - task should log task related messages to <taskPath>\logs-<dateTime>.txt file
 
+
+# SourcePath: does not contain any scanario
+# Default parameters configuration
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-None'
 
+# SourcePath: full path to a single scenario(*.lrs)
+# Should pass by default
+# Default parameters configuration
+# url: <agent.hostName>|<agent.publicIp>/<Build.buildId>-<Build.buildNumber>
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
-    
+
+# SourcePath: path to a directory that contains a single scenario(*.lrs)
+# Input LoadRunner Settings parameters
+# TreatFailuresAsErrors: false should prevent the failure of the task
+# AnalysisTemplate => template for scenario results
+# url: <agent.hostName>|<agent.publicIp>/<Build.buildId>-<Build.buildNumber>-1
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-Single'
@@ -26,12 +59,18 @@ steps:
     AnalysisTemplate: 'C:\Scenarios-Single\templates\MyTemplate1\MyTemplate1.tem'
     TreatFailuresAsErrors: false
 
+# ResultsDirectory path contains blank spaces
+# Input timeout for scenario
+# Should fail the task and the job
+# url: <agent.hostName>|<agent.publicIp>/<Build.buildId>-<Build.buildNumber>-2
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-Single\8UsersFailedScenario.lrs'
     ResultsDirectory: 'C:\L o a d R u n n e r'
     ScenarioExecutionTimeout: '1'
 
+# Props, logs file verified
+# TaskTimeout should kill the task after 1 minute
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
@@ -43,11 +82,14 @@ steps:
     TaskTimeout: '1'
   condition: always()
 
+# Path does not exist
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Test Path'
   condition: always()
 
+# Same resultsDirectory as the first task that contains scenarios of the build =>
+#   url: <agent.hostName>|<agent.publicIp>/<Build.buildId>-<Build.buildNumber>
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
