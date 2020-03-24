@@ -14,9 +14,9 @@ steps:
   inputs:
     SourcePath: 'C:\Scenarios-None'
 
-- task: ExecuteLoadRunnerTestsRelease@1
-  inputs:
-    SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
+# - task: ExecuteLoadRunnerTestsRelease@1
+#   inputs:
+#     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
     
 - task: ExecuteLoadRunnerTestsRelease@1
   inputs:
@@ -26,24 +26,24 @@ steps:
     AnalysisTemplate: 'C:\Scenarios-Single\templates\MyTemplate1\MyTemplate1.tem'
     TreatFailuresAsErrors: false
 
-- task: ExecuteLoadRunnerTestsRelease@1
-  inputs:
-    SourcePath: 'C:\Scenarios-Single\8UsersFailedScenario.lrs'
-    ResultsDirectory: 'C:\L o a d R u n n e r'
-    ScenarioExecutionTimeout: '1'
+# - task: ExecuteLoadRunnerTestsRelease@1
+#   inputs:
+#     SourcePath: 'C:\Scenarios-Single\8UsersFailedScenario.lrs'
+#     ResultsDirectory: 'C:\L o a d R u n n e r'
+#     ScenarioExecutionTimeout: '1'
 
-- task: ExecuteLoadRunnerTestsRelease@1
-  inputs:
-    SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
-    ResultsDirectory: 'C:\LR'
-    ControllerPollingInterval: '50'
-    ScenarioExecutionTimeout: '12'
-    AnalysisTemplate: 'C:\Scenarios-Single\templates\MyTemplate1\MyTemplate1.tem'
-    TreatFailuresAsErrors: false
-    TaskTimeout: '1'
-  condition: always()
+# - task: ExecuteLoadRunnerTestsRelease@1
+#   inputs:
+#     SourcePath: 'C:\Scenarios-Multiple2\2UsersPassedScenario.lrs'
+#     ResultsDirectory: 'C:\LR'
+#     ControllerPollingInterval: '50'
+#     ScenarioExecutionTimeout: '12'
+#     AnalysisTemplate: 'C:\Scenarios-Single\templates\MyTemplate1\MyTemplate1.tem'
+#     TreatFailuresAsErrors: false
+#     TaskTimeout: '1'
+#   condition: always()
 
-- task: ExecuteLoadRunnerTestsRelease@1
-  inputs:
-    SourcePath: 'C:\Test Path'
-  condition: always()
+# - task: ExecuteLoadRunnerTestsRelease@1
+#   inputs:
+#     SourcePath: 'C:\Test Path'
+#   condition: always()
