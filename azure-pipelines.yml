@@ -4,8 +4,8 @@ trigger:
 
 # pool: 'Win8.1' # Everything worked as expected
 # pool: 'Default' # Everything worked as expected
-pool: 'Win2016'
-#pool: 'AzureVms'
+# pool: 'Win2016' # Everything worked as expected
+pool: 'AzureVms'
 
 steps:
 
