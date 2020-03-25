@@ -6,7 +6,7 @@ trigger:
 # pool: 'Default' # Everything worked as expected
 # pool: 'Win2016' # Everything worked as expected
 # pool: 'AzureVms' # Everything worked as expected
-pool: 'Win2019'
+pool: 'Win2019' # Everything worked as expected
 
 steps:
 
